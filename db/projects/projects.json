@@ -1,0 +1,42 @@
+[
+  {
+    "showcase": true,
+    "title": "Tribute to Steve Jobs",
+    "subtitle": "fCC • project #1",
+    "description": "This was my very first web development project. I made a tribute page to Steve Jobs. Until project #6 of freeCodeCamp I was supposed to use only HTML and CSS.",
+    "url": "https://codepen.io/santosmarco/full/yLBvEEM",
+    "thumbnail": "/api/projects/0/thumbnail",
+    "source": "https://codepen.io/santosmarco/pen/yLBvEEM",
+    "user_stories": "https://www.freecodecamp.org/learn/responsive-web-design/responsive-web-design-projects/build-a-tribute-page"
+  },
+  {
+    "showcase": true,
+    "title": "RunForPresident.com",
+    "subtitle": "fCC • project #2",
+    "description": "An HTML form that simulates an application to run for president of the USA. s s ss s s  s sss   s s s s s s ss ss ",
+    "url": "https://codepen.io/santosmarco/full/GRKQBqp",
+    "thumbnail": "/api/projects/1/thumbnail",
+    "source": "https://codepen.io/santosmarco/pen/GRKQBqp",
+    "user_stories": "https://www.freecodecamp.org/learn/responsive-web-design/responsive-web-design-projects/build-a-survey-form"
+  },
+  {
+    "showcase": true,
+    "title": "Wine Club",
+    "subtitle": "fCC • project #3",
+    "description": "This was my very first web development project. I made a tribute page to Steve Jobs. Until project #6 of freeCodeCamp I was supposed to use only HTML and CSS.",
+    "url": "https://codepen.io/santosmarco/full/ExYLdwg",
+    "thumbnail": "/api/projects/2/thumbnail",
+    "source": "https://codepen.io/santosmarco/pen/ExYLdwg",
+    "user_stories": "https://www.freecodecamp.org/learn/responsive-web-design/responsive-web-design-projects/build-a-product-landing-page"
+  },
+  {
+    "showcase": true,
+    "title": "coinlib.py • Docs",
+    "subtitle": "fCC • project #4",
+    "description": "This was my very first web development project. I made a tribute page to Steve Jobs. Until project #6 of freeCodeCamp I was supposed to use only HTML and CSS.",
+    "url": "https://codepen.io/santosmarco/full/MWgqLOz",
+    "thumbnail": "/api/projects/3/thumbnail",
+    "source": "https://codepen.io/santosmarco/pen/MWgqLOz",
+    "user_stories": "https://www.freecodecamp.org/learn/responsive-web-design/responsive-web-design-projects/build-a-technical-documentation-page"
+  }
+]
