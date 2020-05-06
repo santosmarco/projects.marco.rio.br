@@ -18,7 +18,7 @@ const PaginationButton = (props) => {
   }
 
   return (
-    <li className={liClassName} key={props.key}>
+    <li className={liClassName}>
       <button className={btnClassName} onClick={props.onClick}>
         {props.text}
       </button>
@@ -45,10 +45,10 @@ export default (props) => {
     for (let i = 0; i < props.totalPages; i++) {
       btns.push(
         <PaginationButton
-          key={i + 1}
           text={i + 1}
           active={i === props.currentPage}
           onClick={() => props.changePageHandler(i)}
+          key={i + 1}
         />
       );
     }
