@@ -1,72 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
-import Header from "./components/Header";
+import FullPageLoading from "./components/Loading/FullPageLoading";
+import WelcomeSection from "./WelcomeSection/WelcomeSection";
+import ProjectsContainer from "./Projects/ProjectsContainer";
 
-import WelcomeSection from "./sections/WelcomeSection";
-import ShowcaseSection from "./sections/ShowcaseSection";
+function App() {
+  const [status, setStatus] = useState("mounting"); // mounting, fetching, ready
+  const [projects, setProjects] = useState([]);
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      status: "mounting",
-    };
+  const loadProjects = async () => {
+    setStatus("fetching");
+    let res = await fetch(`/api/projects`);
+    let data = await res.json();
+    setProjects(data);
+    setStatus("ready");
+  };
 
-    this.setStatus = this.setStatus.bind(this);
-    this.fetchAPI = this.fetchAPI.bind(this);
-    this.fetchDB = this.fetchDB.bind(this);
-  }
-  setStatus(newStatus) {
-    if (this.state.status !== newStatus) {
-      this.setState((state) => ({
-        status: newStatus,
-      }));
-    }
-  }
-  fetchAPI(endpoint) {
-    this.setStatus("fetching");
-    return fetch(`/api/${endpoint}`).then((res) => res.json());
-  }
-  fetchDB(actions) {
-    const fetchTotal = actions.length;
-    let fetchCompleted = 0;
+  useEffect(() => {
+    loadProjects();
+  }, []);
 
-    for (let i = 0; i < fetchTotal; i++) {
-      this.fetchAPI(actions[i].endpoint).then((res) => {
-        let newState = {};
-        newState[actions[i].stateKey] = res;
-
-        this.setState((state) => newState);
-
-        fetchCompleted++;
-
-        if (fetchCompleted === fetchTotal) {
-          this.setStatus("ready");
-        }
-      });
-    }
-  }
-  componentDidMount() {
-    this.fetchDB([
-      { endpoint: "projects", stateKey: "projects" },
-      { endpoint: "skills", stateKey: "skills" },
-    ]);
-    console.log(this.state);
-  }
-  render() {
-    console.log(this.state);
+  if (status === "mounting" || status === "fetching") {
+    return <FullPageLoading />;
+  } else {
     return (
-      <div className="bg-dark">
-        <Header />
-        <WelcomeSection />
-        <ShowcaseSection
-          projects={
-            this.state.projects
-              ? this.state.projects.filter((project) => project.showcase)
-              : null
-          }
-        />
+      <div>
+        <WelcomeSection todaysProject={projects[0]} />
+        <div className="bg-2 text-light">
+          <div className="container">
+            <ProjectsContainer projects={projects} perPage={2} />
+          </div>
+        </div>
       </div>
     );
   }
